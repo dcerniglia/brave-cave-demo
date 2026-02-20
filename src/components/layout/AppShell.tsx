@@ -16,7 +16,7 @@ export function AppShell() {
   return (
     <div className="flex h-screen bg-background text-foreground">
       <Sidebar />
-      <div className="flex flex-1 flex-col min-w-0">
+      <div className="flex flex-1 flex-col overflow-hidden">
         {/* Mobile header */}
         <header className="flex h-14 items-center justify-between border-b border-border px-4 md:hidden">
           <div className="flex items-center gap-2">
