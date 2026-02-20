@@ -29,7 +29,7 @@ export function F4PillarCard({ pillar, score, delta, lastDate }: F4PillarCardPro
   return (
     <div
       className={cn(
-        "rounded-lg bg-zinc-900 border border-zinc-800 p-4 border-l-4"
+        "rounded-lg bg-zinc-900 border border-zinc-800 p-4 border-l-4 min-w-0"
       )}
       style={{ borderLeftColor: color }}
     >
