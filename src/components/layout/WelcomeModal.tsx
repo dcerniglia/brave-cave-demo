@@ -1,18 +1,26 @@
 import { useState } from "react"
 import { X, Flame } from "lucide-react"
 
+const STORAGE_KEY = "brave-cave-welcome-dismissed"
+
 export function WelcomeModal() {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(() => localStorage.getItem(STORAGE_KEY) !== "true")
+  const [dontShow, setDontShow] = useState(false)
+
+  const dismiss = () => {
+    if (dontShow) localStorage.setItem(STORAGE_KEY, "true")
+    setOpen(false)
+  }
 
   if (!open) return null
 
   return (
     <>
-      <div className="fixed inset-0 z-50 bg-black/70" onClick={() => setOpen(false)} />
+      <div className="fixed inset-0 z-50 bg-black/70" onClick={dismiss} />
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
         <div className="relative bg-zinc-900 border border-zinc-700 rounded-2xl max-w-lg w-full p-8 pointer-events-auto shadow-2xl">
           <button
-            onClick={() => setOpen(false)}
+            onClick={dismiss}
             className="absolute top-4 right-4 p-1.5 rounded-lg text-zinc-500 hover:text-zinc-300 transition-colors"
           >
             <X className="h-5 w-5" />
@@ -40,9 +48,19 @@ export function WelcomeModal() {
             </p>
           </div>
 
+          <label className="flex items-center gap-2 mt-6 cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={dontShow}
+              onChange={(e) => setDontShow(e.target.checked)}
+              className="h-4 w-4 rounded border-zinc-600 bg-zinc-800 accent-primary"
+            />
+            <span className="text-xs text-zinc-500">Don't show this again</span>
+          </label>
+
           <button
-            onClick={() => setOpen(false)}
-            className="mt-8 w-full rounded-lg bg-primary text-primary-foreground py-2.5 text-sm font-medium hover:bg-primary/90 transition-colors"
+            onClick={dismiss}
+            className="mt-4 w-full rounded-lg bg-primary text-primary-foreground py-2.5 text-sm font-medium hover:bg-primary/90 transition-colors"
           >
             Let's see it
           </button>
