@@ -27,7 +27,8 @@ export default function ClientRoster() {
       <div className="px-6 py-4 border-b border-zinc-800">
         <h2 className="text-lg font-semibold text-zinc-100">Client Roster</h2>
       </div>
-      <table className="w-full">
+      <div className="overflow-x-auto">
+      <table className="w-full min-w-[600px]">
         <thead>
           <tr className="bg-zinc-800 text-zinc-400 text-xs uppercase tracking-wider">
             <th className="text-left px-6 py-3">Client</th>
@@ -92,6 +93,7 @@ export default function ClientRoster() {
           })}
         </tbody>
       </table>
+      </div>
     </div>
   )
 }

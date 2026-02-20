@@ -1,19 +1,32 @@
 import { Outlet } from "react-router-dom"
-import { Sidebar } from "./Sidebar"
+import { Sidebar, BottomNav } from "./Sidebar"
 import { RoleSwitcher } from "./RoleSwitcher"
+import { Flame } from "lucide-react"
 
 export function AppShell() {
   return (
     <div className="flex h-screen bg-background text-foreground">
       <Sidebar />
       <div className="flex flex-1 flex-col">
-        <header className="flex h-14 items-center justify-end border-b border-border px-6">
+        {/* Mobile header */}
+        <header className="flex h-14 items-center justify-between border-b border-border px-4 md:hidden">
+          <div className="flex items-center gap-2">
+            <Flame className="h-5 w-5 text-primary" />
+            <span className="text-base font-bold tracking-wide text-foreground">
+              BRAVE CAVE
+            </span>
+          </div>
           <RoleSwitcher />
         </header>
-        <main className="flex-1 overflow-auto p-6">
+        {/* Desktop header */}
+        <header className="hidden md:flex h-14 items-center justify-end border-b border-border px-6">
+          <RoleSwitcher />
+        </header>
+        <main className="flex-1 overflow-auto p-6 pb-20 md:pb-6">
           <Outlet />
         </main>
       </div>
+      <BottomNav />
     </div>
   )
 }

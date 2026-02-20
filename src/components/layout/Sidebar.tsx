@@ -36,7 +36,7 @@ export function Sidebar() {
   const items = role === "coach" ? coachNav : clientNav
 
   return (
-    <aside className="flex h-full w-64 flex-col bg-zinc-950 border-r border-border">
+    <aside className="hidden md:flex h-full w-64 flex-col bg-zinc-950 border-r border-border">
       <div className="flex items-center gap-2 px-6 py-5">
         <Flame className="h-6 w-6 text-primary" />
         <span className="text-lg font-bold tracking-wide text-foreground">
@@ -68,5 +68,34 @@ export function Sidebar() {
         })}
       </nav>
     </aside>
+  )
+}
+
+export function BottomNav() {
+  const { role } = useRole()
+  const items = role === "coach" ? coachNav : clientNav
+
+  return (
+    <nav className="fixed bottom-0 left-0 right-0 z-50 flex justify-around bg-zinc-950 border-t border-zinc-800 px-2 py-2 md:hidden">
+      {items.map((item) => {
+        const Icon = item.icon
+        return (
+          <NavLink
+            key={item.to}
+            to={item.to}
+            end={item.to === "/coach" || item.to === "/client"}
+            className={({ isActive }) =>
+              cn(
+                "flex flex-col items-center gap-0.5 px-2 py-1 transition-colors",
+                isActive ? "text-primary" : "text-zinc-500"
+              )
+            }
+          >
+            <Icon className="h-5 w-5" />
+            <span className="text-[10px] font-medium">{item.label}</span>
+          </NavLink>
+        )
+      })}
+    </nav>
   )
 }

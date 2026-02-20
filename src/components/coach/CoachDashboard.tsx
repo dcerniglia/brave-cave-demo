@@ -55,15 +55,15 @@ export default function CoachDashboard() {
         <p className="text-sm text-zinc-500 mt-1">Thursday, February 20, 2026</p>
       </div>
 
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <StatCard icon={Users} label="Total Clients" value={totalClients} />
         <StatCard icon={Calendar} label="Sessions This Week" value={sessionsThisWeek} />
         <StatCard icon={Activity} label="Avg F4 Composite" value={avgComposite} />
         <StatCard icon={AlertTriangle} label="Overdue Actions" value={overdueActions} />
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
-        <div className="col-span-2">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2">
           <ClientRoster />
         </div>
         <div>

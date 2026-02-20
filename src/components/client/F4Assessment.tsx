@@ -82,7 +82,7 @@ export default function F4Assessment() {
       {/* Summary */}
       <div className="rounded-xl bg-zinc-900 border border-zinc-800 p-5">
         <h3 className="text-sm font-medium text-zinc-400 mb-3">Summary</h3>
-        <div className="flex items-center gap-6">
+        <div className="flex flex-wrap items-center gap-4 sm:gap-6">
           {PILLARS.map((pillar) => (
             <div key={pillar} className="flex items-center gap-2">
               <div

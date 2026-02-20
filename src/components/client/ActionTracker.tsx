@@ -72,7 +72,7 @@ export default function ActionTracker() {
       </div>
 
       {/* Summary Stats */}
-      <div className="flex items-center gap-6">
+      <div className="flex flex-wrap items-center gap-4 sm:gap-6">
         <div className="flex items-center gap-2">
           <span className="text-sm text-zinc-400">Total</span>
           <span className="text-sm font-bold text-zinc-200">{totalCount}</span>
@@ -95,7 +95,7 @@ export default function ActionTracker() {
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex items-center gap-1 rounded-lg bg-zinc-900 p-1 w-fit">
+      <div className="flex flex-wrap items-center gap-1 rounded-lg bg-zinc-900 p-1 w-fit">
         {TABS.map((tab) => (
           <button
             key={tab.key}

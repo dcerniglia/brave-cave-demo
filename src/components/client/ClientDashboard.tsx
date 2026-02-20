@@ -52,7 +52,7 @@ export default function ClientDashboard() {
     .slice(0, 5)
 
   return (
-    <div className="space-y-8 p-6 max-w-4xl mx-auto">
+    <div className="space-y-8 max-w-4xl mx-auto">
       {/* Greeting */}
       <div>
         <h1 className="text-2xl font-bold text-zinc-100">Welcome back, {firstName}</h1>

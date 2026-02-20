@@ -85,7 +85,7 @@ export default function SessionDetail() {
 
       {/* Header */}
       <div className="bg-zinc-900 rounded-xl border border-zinc-800 p-6">
-        <div className="flex items-start justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
           <div className="flex items-center gap-4">
             <img
               src={client.avatarUrl}
@@ -95,7 +95,7 @@ export default function SessionDetail() {
             <div>
               <h1 className="text-xl font-bold text-zinc-100">{client.name}</h1>
               <p className="text-sm text-zinc-400">{client.company}</p>
-              <div className="flex items-center gap-3 mt-2">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 mt-2">
                 <div className="flex items-center gap-1.5 text-sm text-zinc-400">
                   <Calendar className="w-4 h-4" />
                   {formattedDate}
@@ -140,8 +140,8 @@ export default function SessionDetail() {
           <h2 className="text-lg font-semibold text-zinc-100 mb-4">
             F4 Snapshot — Week {sessionWeek.week}
           </h2>
-          <div className="flex items-start gap-8">
-            <div className="flex-shrink-0">
+          <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8">
+            <div className="flex-shrink-0 self-center md:self-start">
               <F4RadarChart
                 current={sessionWeek.scores}
                 baseline={baseline?.scores}
@@ -268,7 +268,8 @@ export default function SessionDetail() {
               Action Items from This Session
             </h2>
           </div>
-          <table className="w-full">
+          <div className="overflow-x-auto">
+          <table className="w-full min-w-[500px]">
             <thead>
               <tr className="bg-zinc-800 text-zinc-400 text-xs uppercase tracking-wider">
                 <th className="text-left px-6 py-3">Action</th>
@@ -321,6 +322,7 @@ export default function SessionDetail() {
               })}
             </tbody>
           </table>
+          </div>
         </div>
       )}
 

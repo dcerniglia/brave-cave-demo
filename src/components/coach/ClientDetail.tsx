@@ -88,7 +88,7 @@ export default function ClientDetail() {
       </div>
 
       {/* F4 Radar + Sparklines row */}
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Radar Chart */}
         <div className="bg-zinc-900 rounded-xl border border-zinc-800 p-6">
           <h2 className="text-sm font-semibold text-zinc-300 mb-4">
@@ -110,7 +110,7 @@ export default function ClientDetail() {
               }))
               return (
                 <div key={pillar}>
-                  <ResponsiveContainer width={150} height={60}>
+                  <ResponsiveContainer width="100%" height={60}>
                     <LineChart data={data}>
                       <Line
                         type="monotone"
@@ -146,7 +146,8 @@ export default function ClientDetail() {
         <div className="px-6 py-4 border-b border-zinc-800">
           <h2 className="text-lg font-semibold text-zinc-100">Action Items</h2>
         </div>
-        <table className="w-full">
+        <div className="overflow-x-auto">
+        <table className="w-full min-w-[500px]">
           <thead>
             <tr className="bg-zinc-800 text-zinc-400 text-xs uppercase tracking-wider">
               <th className="text-left px-6 py-3">Action</th>
@@ -195,6 +196,7 @@ export default function ClientDetail() {
             })}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   )
