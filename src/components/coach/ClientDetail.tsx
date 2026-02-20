@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { ChevronDown, ChevronRight } from "lucide-react"
 import { LineChart, Line, ResponsiveContainer } from "recharts"
 import { cn } from "@/lib/utils"
@@ -35,6 +35,7 @@ const pillars: Pillar[] = ["fitness", "focus", "fraternity", "finance"]
 
 export default function ClientDetail() {
   const { id } = useParams<{ id: string }>()
+  const navigate = useNavigate()
   const client = clients.find((c) => c.id === id)
 
   if (!client) {
@@ -166,7 +167,8 @@ export default function ClientDetail() {
               return (
                 <tr
                   key={item.id}
-                  className="border-b border-zinc-800/50"
+                  onClick={() => navigate(`/coach/action/${item.id}`)}
+                  className="border-b border-zinc-800/50 hover:bg-zinc-800/50 cursor-pointer transition-colors"
                 >
                   <td className="px-6 py-3 text-sm text-zinc-200">{item.text}</td>
                   <td className="px-4 py-3">

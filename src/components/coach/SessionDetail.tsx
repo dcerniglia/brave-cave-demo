@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom"
+import { useParams, Link, useNavigate } from "react-router-dom"
 import { ArrowLeft, Calendar, Clock, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { sessions } from "@/data/sessions"
@@ -36,6 +36,7 @@ const STATUS_STYLES: Record<string, string> = {
 
 export default function SessionDetail() {
   const { id } = useParams<{ id: string }>()
+  const navigate = useNavigate()
   const session = sessions.find((s) => s.id === id)
 
   if (!session) {
@@ -288,7 +289,8 @@ export default function SessionDetail() {
                 return (
                   <tr
                     key={item.id}
-                    className="border-b border-zinc-800/50"
+                    onClick={() => navigate(`/coach/action/${item.id}`)}
+                    className="border-b border-zinc-800/50 hover:bg-zinc-800/50 cursor-pointer transition-colors"
                   >
                     <td className="px-6 py-4 text-sm text-zinc-300">
                       {item.text}
