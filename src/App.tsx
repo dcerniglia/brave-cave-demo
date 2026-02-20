@@ -5,6 +5,7 @@ import CoachDashboard from "@/components/coach/CoachDashboard"
 import ClientDetail from "@/components/coach/ClientDetail"
 import ClientsPage from "@/components/coach/ClientsPage"
 import SessionsPage from "@/components/coach/SessionsPage"
+import SessionDetail from "@/components/coach/SessionDetail"
 import ClientDashboard from "@/components/client/ClientDashboard"
 import HafCheckinForm from "@/components/client/HafCheckinForm"
 import F4Assessment from "@/components/client/F4Assessment"
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/coach" element={<CoachDashboard />} />
           <Route path="/coach/clients" element={<ClientsPage />} />
           <Route path="/coach/sessions" element={<SessionsPage />} />
+          <Route path="/coach/session/:id" element={<SessionDetail />} />
           <Route path="/coach/client/:id" element={<ClientDetail />} />
           <Route path="/client" element={<ClientDashboard />} />
           <Route path="/client/checkin" element={<HafCheckinForm />} />

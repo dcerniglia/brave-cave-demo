@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom"
+import { ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { sessions } from "@/data/sessions"
 import { clients } from "@/data/clients"
@@ -33,10 +35,15 @@ export default function SessionsPage() {
     })
   }
 
+  const navigate = useNavigate()
+
   const SessionRow = ({ session }: { session: (typeof sessions)[0] }) => {
     const client = clientMap[session.clientId]
     return (
-      <div className="px-6 py-4 flex items-center justify-between">
+      <div
+        onClick={() => navigate(`/coach/session/${session.id}`)}
+        className="px-6 py-4 flex items-center justify-between hover:bg-zinc-800/50 transition cursor-pointer"
+      >
         <div className="flex items-center gap-4">
           <img
             src={client?.avatarUrl}
@@ -61,6 +68,7 @@ export default function SessionsPage() {
           >
             {TYPE_LABELS[session.type]}
           </span>
+          <ChevronRight className="w-4 h-4 text-zinc-600" />
         </div>
       </div>
     )
