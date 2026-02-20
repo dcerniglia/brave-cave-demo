@@ -4,6 +4,7 @@ import { Sidebar, MobileDrawer, BottomNav } from "./Sidebar"
 import { RoleSwitcher } from "./RoleSwitcher"
 import { Flame } from "lucide-react"
 import { useRole } from "@/hooks/useRole"
+import { WelcomeModal } from "./WelcomeModal"
 
 export function AppShell() {
   const { pathname } = useLocation()
@@ -15,6 +16,7 @@ export function AppShell() {
   }, [pathname, role, setRole])
   return (
     <div className="flex h-screen bg-background text-foreground">
+      <WelcomeModal />
       <Sidebar />
       <div className="flex flex-1 flex-col overflow-hidden">
         {/* Header: always visible, content changes by breakpoint */}
