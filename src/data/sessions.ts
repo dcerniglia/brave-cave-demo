@@ -1,0 +1,223 @@
+import type { Session } from "@/types"
+
+export const sessions: Session[] = [
+  // ── Marcus Chen — full weekly rhythm + deep-dives ───────────────────
+  {
+    id: "ses-m1",
+    clientId: "c-marcus",
+    date: "2026-01-05",
+    time: "09:00",
+    type: "weekly",
+    notes: "Kickoff session. Established F4 baselines and 60-day arc goals.",
+  },
+  {
+    id: "ses-m2",
+    clientId: "c-marcus",
+    date: "2026-01-12",
+    time: "09:00",
+    type: "weekly",
+    notes: "Reviewed handoff playbook draft. Discussed delegation patterns.",
+  },
+  {
+    id: "ses-m3",
+    clientId: "c-marcus",
+    date: "2026-01-19",
+    time: "09:00",
+    type: "weekly",
+    notes: "VP Sales conversation debrief. Worked on confrontation vs. conflict framing.",
+  },
+  {
+    id: "ses-m4",
+    clientId: "c-marcus",
+    date: "2026-01-23",
+    time: "14:00",
+    type: "deep-dive",
+    notes: "Deep-dive on co-founder dynamics. Mapped role boundaries and ownership areas.",
+  },
+  {
+    id: "ses-m5",
+    clientId: "c-marcus",
+    date: "2026-01-26",
+    time: "09:00",
+    type: "weekly",
+    notes: "Board deck prep. Travel rhythm for fitness. Deal review cadence check.",
+  },
+  {
+    id: "ses-m6",
+    clientId: "c-marcus",
+    date: "2026-02-02",
+    time: "09:00",
+    type: "weekly",
+    notes: "Co-founder role clarity doc review. Personal finance awareness kickoff.",
+  },
+  {
+    id: "ses-m7",
+    clientId: "c-marcus",
+    date: "2026-02-06",
+    time: "14:00",
+    type: "deal-review",
+    notes: "Pipeline review ahead of board meeting. Rehearsed Q&A on Q1 numbers.",
+  },
+  {
+    id: "ses-m8",
+    clientId: "c-marcus",
+    date: "2026-02-09",
+    time: "09:00",
+    type: "weekly",
+    notes: "Board prep final pass. Fraternity check — wife, co-founder, team.",
+  },
+  {
+    id: "ses-m9",
+    clientId: "c-marcus",
+    date: "2026-02-16",
+    time: "09:00",
+    type: "weekly",
+    notes: "Post-board debrief. Addressed pattern of jumping back into IC work after wins.",
+  },
+  // Upcoming
+  {
+    id: "ses-m10",
+    clientId: "c-marcus",
+    date: "2026-02-23",
+    time: "09:00",
+    type: "weekly",
+  },
+  {
+    id: "ses-m11",
+    clientId: "c-marcus",
+    date: "2026-02-27",
+    time: "14:00",
+    type: "deal-review",
+  },
+  {
+    id: "ses-m12",
+    clientId: "c-marcus",
+    date: "2026-03-02",
+    time: "09:00",
+    type: "weekly",
+  },
+
+  // ── Sarah Okafor ────────────────────────────────────────────────────
+  {
+    id: "ses-s1",
+    clientId: "c-sarah",
+    date: "2026-01-19",
+    time: "10:30",
+    type: "weekly",
+    notes: "Kickoff. Fundraise audit. Isolation pattern identified.",
+  },
+  {
+    id: "ses-s2",
+    clientId: "c-sarah",
+    date: "2026-02-02",
+    time: "10:30",
+    type: "weekly",
+    notes: "Investor screening framework. Sequoia intro follow-up.",
+  },
+  {
+    id: "ses-s3",
+    clientId: "c-sarah",
+    date: "2026-02-16",
+    time: "10:30",
+    type: "weekly",
+    notes: "Unit economics deep prep. Finance literacy goal setting.",
+  },
+  {
+    id: "ses-s4",
+    clientId: "c-sarah",
+    date: "2026-02-23",
+    time: "10:30",
+    type: "weekly",
+  },
+  {
+    id: "ses-s5",
+    clientId: "c-sarah",
+    date: "2026-02-26",
+    time: "15:00",
+    type: "deep-dive",
+  },
+
+  // ── James Whitfield ─────────────────────────────────────────────────
+  {
+    id: "ses-j1",
+    clientId: "c-james",
+    date: "2026-02-02",
+    time: "11:00",
+    type: "weekly",
+    notes: "Kickoff. Portfolio CEO conflict. Fitness accountability gap.",
+  },
+  {
+    id: "ses-j2",
+    clientId: "c-james",
+    date: "2026-02-16",
+    time: "11:00",
+    type: "weekly",
+    notes: "Trainer accountability reframe. Portfolio review template.",
+  },
+  {
+    id: "ses-j3",
+    clientId: "c-james",
+    date: "2026-02-23",
+    time: "11:00",
+    type: "weekly",
+  },
+
+  // ── Priya Nair ──────────────────────────────────────────────────────
+  {
+    id: "ses-p1",
+    clientId: "c-priya",
+    date: "2026-01-26",
+    time: "13:00",
+    type: "weekly",
+    notes: "Kickoff. Engineering burnout root cause. Runway reality check.",
+  },
+  {
+    id: "ses-p2",
+    clientId: "c-priya",
+    date: "2026-02-09",
+    time: "13:00",
+    type: "weekly",
+    notes: "Sprint discipline check. Investor outreach progress.",
+  },
+  {
+    id: "ses-p3",
+    clientId: "c-priya",
+    date: "2026-02-23",
+    time: "13:00",
+    type: "weekly",
+  },
+
+  // ── Devon Caldwell ──────────────────────────────────────────────────
+  {
+    id: "ses-d1",
+    clientId: "c-devon",
+    date: "2026-02-09",
+    time: "08:00",
+    type: "weekly",
+    notes: "Kickoff. Financial hygiene. Business development time blocks.",
+  },
+  {
+    id: "ses-d2",
+    clientId: "c-devon",
+    date: "2026-02-23",
+    time: "08:00",
+    type: "weekly",
+  },
+
+  // ── Rachel Dominguez ────────────────────────────────────────────────
+  {
+    id: "ses-r1",
+    clientId: "c-rachel",
+    date: "2026-02-16",
+    time: "15:00",
+    type: "weekly",
+    notes: "Kickoff. Scarcity mindset. Ideal client profile exercise.",
+  },
+  {
+    id: "ses-r2",
+    clientId: "c-rachel",
+    date: "2026-02-23",
+    time: "15:00",
+    type: "weekly",
+  },
+]
