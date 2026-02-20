@@ -74,14 +74,21 @@ export default function ClientRoster() {
                       pillars.map((p) => (
                         <span
                           key={p}
-                          className="inline-flex flex-col items-center justify-center w-10 h-10 rounded-full text-[10px] font-semibold leading-tight"
+                          className="inline-flex items-center justify-center rounded-full font-medium"
                           style={{
                             backgroundColor: `${PILLAR_HEX[p]}20`,
                             color: PILLAR_HEX[p],
                           }}
                         >
-                          <span>{PILLAR_ABBREV[p]}</span>
-                          <span className="text-xs">{scores[p]}</span>
+                          {/* Pill layout for wider screens */}
+                          <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-xs">
+                            {PILLAR_ABBREV[p]} {scores[p]}
+                          </span>
+                          {/* Circle layout for narrow screens */}
+                          <span className="sm:hidden flex flex-col items-center justify-center w-10 h-10 text-[10px] font-semibold leading-tight">
+                            <span>{PILLAR_ABBREV[p]}</span>
+                            <span className="text-xs">{scores[p]}</span>
+                          </span>
                         </span>
                       ))}
                   </div>
