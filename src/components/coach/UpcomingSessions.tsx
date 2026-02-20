@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import { Calendar } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { sessions } from "@/data/sessions"
@@ -18,6 +19,7 @@ const TYPE_LABELS: Record<string, string> = {
 }
 
 export default function UpcomingSessions() {
+  const navigate = useNavigate()
   const upcoming = sessions
     .filter((s) => s.date >= "2026-02-20")
     .sort((a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time))
@@ -39,7 +41,7 @@ export default function UpcomingSessions() {
           })
 
           return (
-            <div key={session.id} className="px-6 py-4 flex items-center justify-between">
+            <div key={session.id} onClick={() => navigate(`/coach/session/${session.id}`)} className="px-6 py-4 flex items-center justify-between hover:bg-zinc-800/50 cursor-pointer transition-colors">
               <div>
                 <div className="text-sm font-medium text-zinc-100">
                   {client?.name ?? "Unknown"}

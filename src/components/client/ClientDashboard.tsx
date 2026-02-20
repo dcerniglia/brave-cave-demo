@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { CalendarDays, ClipboardCheck, ArrowRight, Circle } from "lucide-react"
 import { useRole } from "@/hooks/useRole"
 import { clients } from "@/data/clients"
@@ -31,6 +31,7 @@ const STATUS_COLORS: Record<string, string> = {
 
 export default function ClientDashboard() {
   const { activeClientId } = useRole()
+  const navigate = useNavigate()
   const client = clients.find((c) => c.id === activeClientId)
 
   if (!client) return <div className="p-6 text-zinc-400">Client not found.</div>
@@ -126,7 +127,8 @@ export default function ClientDashboard() {
           {recentActions.map((item) => (
             <div
               key={item.id}
-              className="flex items-center gap-3 rounded-lg bg-zinc-900 border border-zinc-800 px-4 py-3"
+              onClick={() => navigate(`/coach/action/${item.id}`)}
+              className="flex items-center gap-3 rounded-lg bg-zinc-900 border border-zinc-800 px-4 py-3 hover:bg-zinc-800/50 cursor-pointer transition-colors"
             >
               <Circle
                 className={cn("h-2.5 w-2.5 flex-shrink-0", STATUS_COLORS[item.status])}

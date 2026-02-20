@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { useRole } from "@/hooks/useRole"
 import { actionItems as initialActions } from "@/data/action-items"
 import { cn } from "@/lib/utils"
@@ -44,6 +45,7 @@ const STATUS_BADGE: Record<string, { bg: string; text: string; label: string }> 
 
 export default function ActionTracker() {
   const { activeClientId } = useRole()
+  const navigate = useNavigate()
   const [filter, setFilter] = useState<FilterTab>("all")
   const [items, setItems] = useState<ActionItem[]>(
     initialActions.filter((a) => a.clientId === activeClientId)
@@ -130,10 +132,11 @@ export default function ActionTracker() {
               )}
             >
               <span
+                onClick={() => navigate(`/coach/action/${item.id}`)}
                 className={cn(
-                  "text-sm flex-1",
+                  "text-sm flex-1 cursor-pointer hover:text-zinc-100 transition-colors",
                   item.status === "done"
-                    ? "line-through text-zinc-500"
+                    ? "line-through text-zinc-500 hover:text-zinc-400"
                     : "text-zinc-300"
                 )}
               >
