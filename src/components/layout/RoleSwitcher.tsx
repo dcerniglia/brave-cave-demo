@@ -2,41 +2,45 @@ import { Shield, User } from "lucide-react"
 import { useNavigate } from "react-router-dom"
 import { cn } from "@/lib/utils"
 import { useRole } from "@/hooks/useRole"
-import type { Role } from "@/types"
-
-const options: { value: Role; label: string; icon: typeof Shield }[] = [
-  { value: "coach", label: "Coach", icon: Shield },
-  { value: "client", label: "Client", icon: User },
-]
 
 export function RoleSwitcher() {
   const { role, setRole } = useRole()
   const navigate = useNavigate()
+  const isCoach = role === "coach"
+
+  const toggle = () => {
+    const next = isCoach ? "client" : "coach"
+    setRole(next)
+    navigate(next === "coach" ? "/coach" : "/client")
+  }
 
   return (
-    <div className="flex rounded-lg bg-zinc-800 p-1">
-      {options.map((opt) => {
-        const Icon = opt.icon
-        const active = role === opt.value
-        return (
-          <button
-            key={opt.value}
-            onClick={() => {
-              setRole(opt.value)
-              navigate(opt.value === "coach" ? "/coach" : "/client")
-            }}
-            className={cn(
-              "flex items-center gap-2 rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
-              active
-                ? "bg-primary text-primary-foreground"
-                : "text-muted-foreground hover:text-foreground"
-            )}
-          >
-            <Icon className="h-4 w-4" />
-            {opt.label}
-          </button>
-        )
-      })}
-    </div>
+    <button
+      onClick={toggle}
+      className="flex items-center gap-3 rounded-full bg-zinc-800/80 border border-zinc-700/50 px-1.5 py-1.5 transition-colors hover:border-zinc-600"
+    >
+      <span
+        className={cn(
+          "flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium transition-all",
+          isCoach
+            ? "bg-primary text-primary-foreground shadow-sm"
+            : "text-zinc-500"
+        )}
+      >
+        <Shield className="h-3.5 w-3.5" />
+        Coach
+      </span>
+      <span
+        className={cn(
+          "flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium transition-all",
+          !isCoach
+            ? "bg-primary text-primary-foreground shadow-sm"
+            : "text-zinc-500"
+        )}
+      >
+        <User className="h-3.5 w-3.5" />
+        Client
+      </span>
+    </button>
   )
 }
