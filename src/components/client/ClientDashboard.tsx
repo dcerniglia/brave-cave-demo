@@ -94,22 +94,22 @@ export default function ClientDashboard() {
       {/* Quick Actions */}
       <div>
         <h2 className="text-lg font-semibold text-zinc-200 mb-3">Quick Actions</h2>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <Link
             to="/client/checkin"
             className="flex items-center gap-3 rounded-xl bg-zinc-900 border border-zinc-800 p-4 hover:border-zinc-700 transition-colors"
           >
-            <ClipboardCheck className="h-5 w-5 text-zinc-400" />
+            <ClipboardCheck className="h-5 w-5 text-zinc-400 flex-shrink-0" />
             <span className="text-sm font-medium text-zinc-200">Prep for next session</span>
-            <ArrowRight className="h-4 w-4 text-zinc-500 ml-auto" />
+            <ArrowRight className="h-4 w-4 text-zinc-500 ml-auto flex-shrink-0" />
           </Link>
           <Link
             to="/client/assess"
             className="flex items-center gap-3 rounded-xl bg-zinc-900 border border-zinc-800 p-4 hover:border-zinc-700 transition-colors"
           >
-            <CalendarDays className="h-5 w-5 text-zinc-400" />
+            <CalendarDays className="h-5 w-5 text-zinc-400 flex-shrink-0" />
             <span className="text-sm font-medium text-zinc-200">Take F4 Assessment</span>
-            <ArrowRight className="h-4 w-4 text-zinc-500 ml-auto" />
+            <ArrowRight className="h-4 w-4 text-zinc-500 ml-auto flex-shrink-0" />
           </Link>
         </div>
       </div>

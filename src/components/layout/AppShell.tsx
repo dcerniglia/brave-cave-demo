@@ -1,9 +1,18 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, useLocation } from "react-router-dom"
+import { useEffect } from "react"
 import { Sidebar, BottomNav } from "./Sidebar"
 import { RoleSwitcher } from "./RoleSwitcher"
 import { Flame } from "lucide-react"
+import { useRole } from "@/hooks/useRole"
 
 export function AppShell() {
+  const { pathname } = useLocation()
+  const { role, setRole } = useRole()
+
+  useEffect(() => {
+    const pathRole = pathname.startsWith("/client") ? "client" : "coach"
+    if (pathRole !== role) setRole(pathRole)
+  }, [pathname, role, setRole])
   return (
     <div className="flex h-screen bg-background text-foreground">
       <Sidebar />
