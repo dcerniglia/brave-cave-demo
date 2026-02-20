@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from "react-router-dom"
+import { Outlet, useLocation, Link } from "react-router-dom"
 import { useEffect } from "react"
 import { Sidebar, BottomNav } from "./Sidebar"
 import { RoleSwitcher } from "./RoleSwitcher"
@@ -19,12 +19,12 @@ export function AppShell() {
       <div className="flex flex-1 flex-col overflow-hidden">
         {/* Mobile header */}
         <header className="flex h-14 items-center justify-between border-b border-border px-4 md:hidden">
-          <div className="flex items-center gap-2">
+          <Link to={role === "coach" ? "/coach" : "/client"} className="flex items-center gap-2">
             <Flame className="h-5 w-5 text-primary" />
             <span className="text-base font-bold tracking-wide text-foreground">
               BRAVE CAVE
             </span>
-          </div>
+          </Link>
           <RoleSwitcher />
         </header>
         {/* Desktop header */}

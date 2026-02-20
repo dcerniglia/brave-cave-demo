@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 import {
   LayoutDashboard,
   Users,
@@ -37,12 +37,12 @@ export function Sidebar() {
 
   return (
     <aside className="hidden md:flex h-full w-64 flex-col bg-zinc-950 border-r border-border">
-      <div className="flex items-center gap-2 px-6 py-5">
+      <Link to={role === "coach" ? "/coach" : "/client"} className="flex items-center gap-2 px-6 py-5">
         <Flame className="h-6 w-6 text-primary" />
         <span className="text-lg font-bold tracking-wide text-foreground">
           BRAVE CAVE
         </span>
-      </div>
+      </Link>
 
       <nav className="flex-1 space-y-1 px-3 py-2">
         {items.map((item) => {
